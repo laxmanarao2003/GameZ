@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         GameZ
+      </title> 
+      <meta name="author" content="Laxmana Rao">
+      <meta name="description" content="Kids-games">
+      <meta name="keywords" content="">
+      <meta name="viewport" content="intial-scale-1.0,width=device-width">
+      <meta http-equiv="refresh" content="">
+      <!----------------------------- FAVICON --------------------------------->
+      <link rel="icon" href=".\favicon.jpg" type="image/x-icon">
+
+      <!-------------------------External CSS ---------------------------------->
+      <link rel="stylesheet" href=".\dicestyle.css" type="text/css">
+
+      <!-------------------------External JS ---------------------------------->
+      <script src="D:\Projects\Dice-Rolling\"></script>
+
+      <!------------------------------- JQUERY-JS-CDN -------------------------->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+      <!----------------------------- Fontawesome-JS-CDN -------------------------->
+      <script src="https://kit.fontawesome.com/832f4883ab.js" crossorigin="anonymous"></script>
+
+      <!--------------------------- BOOTSTRAP-Css-CDN --------------------------->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- --------------------- BOOTSTRAP-JavaScript-CDN ---------------------------->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+      <!------------------------ BOOTSTRAP-JQuery-CDN -------------------------->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   </head>
+   <script>
+      let user1=document.getElementById("user1");
+      let user2=document.getElementById("user2");
+      var res1=6,res2=4;
+      function func1(){
+         let val1=Math.floor(Math.random()*6)+1;
+         let ele=document.getElementById("img1");
+         let ele1=document.getElementById("form1");
+         let ele2=document.getElementById("users-team1");
+         ele2.innerHTML=ele1.value;
+         document.getElementById("img1").src=`img${val1}.png`;
+         ele.title=val1;
+         ele.alt=val1;
+         res1=val1;
+         func3();
+      }
+      function func2(){
+         let val2=Math.floor(Math.random()*6)+1;
+         let ele=document.getElementById("img2");
+         let ele1=document.getElementById("form2");
+         let ele2=document.getElementById("users-team2");
+         ele2.innerHTML=ele1.value;
+         document.getElementById("img2").src=`img${val2}.png`;
+         ele.title=val2;
+         ele.alt=val2;
+         res2=val2;
+         func3();
+      }
+      function func3(){
+         let ele1=document.getElementById("form1");
+         let ele2=document.getElementById("form2");
+         if(res1>res2)
+         {
+            document.getElementById("winteam").innerHTML=`${ele1.value}-Wins`;
+         }
+         else if(res1<res2)
+         {
+            document.getElementById("winteam").innerHTML=`${ele2.value}-Wins`;
+         }
+         else{
+            document.getElementById("winteam").innerHTML=`It's a Tie`;
+         }
+      }
+   </script>
+<body oncontextmenu="return false">
+   <div class="container d-flex flex-wrap justify-content-center mt-5">
+      <h1 class="text-center winning" id="winteam">India-Wins</h1>
+      <h1><i class="fa-solid fa-trophy text-success ms-3"></i></h1>
+   </div>
+   <div class="container-fluid mt-5">
+      <div class="col-xl-12 col-lg-11 col-md-12 col-sm-12 mt-5">
+         <div class="d-flex flex-wrap justify-content-center align-items-center">
+            <div>
+               <form class="d-flex justify-content-center w-75 ms-4 mt-2">
+                  <select class="form-select" id="form1">
+                     <option>India</option>
+                     <option>England</option>
+                     <option>Pakisthan</option>
+                     <option>Bangladesh</option>
+                     <option>Australia</option>
+                     <option>New Zealand</option>
+                     <option>Sri Lanka</option>
+                  </select>
+               </form>
+               <h3 class="text-center text-white mt-4" id="users-team1">India</h3>
+               <img src="img6.png" id="img1" class="img4 img-thumbnail mx-5 my-4" alt="six" title="six">
+               <div class="d-flex flex-wrap justify-content-center mt-4 mb-5">
+                  <button class="btn btn-outline-success px-4" id="user1" onclick="func1()">User-1</button>
+               </div>
+            </div>
+            <div>
+               <form class="d-flex justify-content-center w-75 ms-4 mt-2">
+                  <select class="form-select" id="form2">
+                     <option>Australia</option>
+                     <option>India</option>
+                     <option>Pakisthan</option>
+                     <option>Bangladesh</option>
+                     <option>England</option>
+                     <option>New Zealand</option>
+                     <option>Sri Lanka</option>
+                  </select>
+               </form>
+               <h3 class="text-center text-white mt-4" id="users-team2">Australia</h3>
+               <img src="img4.png" id="img2" class="img6 img-thumbnail mx-5 my-4" alt="four" title="four">
+               <div class="d-flex flex-wrap justify-content-center mt-4 mb-5">
+                  <button class="btn btn-outline-success px-4" id="user2" onclick="func2()">User-2</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+</html>
